@@ -46,6 +46,9 @@
 data: 接收的 Uint8Array 数组   
 type: data[2]，枚举类型 *CmdEnum* 根据不同的类型值调用对应的函数   
 
+- **async parseTypeEvent(type, data)**   
+按传入类型，自动解析并返回对应的数据   
+
 - **async parseKeyModeStatus(data)**   
 解析（返回的）按键测试模式状态   
 返回值类型：TestKeySwitch   
