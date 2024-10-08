@@ -22,23 +22,23 @@
 ## 函数
 可划分为以下类型：发送/接收   
 
-### 发送给设备的指令
-- **async enableKeyMode()**   
+### 指令生成
+- **async genEnableKeyMode()**   
 获取开启按键测试模式（指令）   
 返回值类型: Uint8Array   
-- **async disibleKeyMode()**   
+- **async genDisableKeyMode()**   
 获取关闭按键测试模式（指令）   
 返回值类型: Uint8Array   
-- **async getConnectStatus()**   
+- **async genConnectStatus()**   
 获取连接状态以及信号强度（指令）   
 返回值类型: Uint8Array   
-- **async getVersionAndMode()**   
+- **async genVersionAndMode()**   
 获取设备版本信息和型号（指令）   
 返回值类型: Uint8Array   
-- **async getBattery()**   
+- **async genBattery()**   
 获取左/右电池信息（指令）   
 返回值类型: Uint8Array   
-- **async getMacAddress()**   
+- **async genMacAddress()**   
 获取设备蓝牙的 mac 地址（指令）   
 返回值类型: Uint8Array   
 
@@ -53,7 +53,7 @@ type: data[2]，枚举类型 *CmdEnum* 根据不同的类型值调用对应的�
 - **async parseKey(data)**   
 解析（返回的）按键信息   
 返回值类型：TestKeyType   
-- **async parseConnectStatus(data)**   
+- **async parseConnectAndRssi(data)**   
 解析（返回的）连接状态以及信号强度   
 返回值类型：ConnType   
 - **async parseVersionAndMode(data)**   
@@ -77,13 +77,4 @@ VERSION_AND_MODE = 226,     // 设备版本信息和型号
 BATTERY = 4,                // 左/右电池信息
 MAC_ADDRESS = 25,           // 设备蓝牙的 mac 地址
 ERROR = 0                   // 异常
-```
-## 类型
-### ResultType
-```typescript
-{
-    type: CmdEnum;          // 事件类型 
-    rx_len: number;         // 数据包长度
-    rx_buf: Uint8Array;     // USB 传输的数据
-}
 ```
